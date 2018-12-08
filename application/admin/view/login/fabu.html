@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="_LAY_/css/layui.css">
+	<script src="_LAY_/layui.js"></script>
+	<script src="_JS_/jquery.min.js"></script>
+</head>
+<body>
+	<a href="{:url('loginout')}">退出</a>
+	<select name="" id="">
+		<option value="1">学无止境</option>
+		<option value="2">日记</option>
+		<option value="3">慢生活</option>
+		<option value="4">美文欣赏</option>
+	</select>
+	<input type="text" name="title" id="name">
+	<textarea id="demo" style="display: none;"></textarea>
+	<button class="layui-btn" id="sub">默认按钮</button>
+	<script>
+		layui.use(['layedit','layer'], function(){
+			var layer = layui.layer;
+		  var layedit = layui.layedit;
+		  layedit.set({
+		    uploadImage: {
+		      url: '{:url("upload")}' //接口url
+		      ,type: '' //默认post
+		    }
+		  });
+		  var index = layedit.build('demo'); //建立编辑器
+		  $('#sub').click(function(){
+		  	var type = $('select').val();
+		  	var title = $('#name').val()
+		  	var con = layedit.getContent(index);
+		  	$.post('{:url("wztj")}',{'con':con,title:title,type:type},function(data){
+		  		if(data==0){
+		  			layer.msg('提交成功')
+		  		}else{
+		  			layer.msg('提交失败')
+		  		}
+		  		
+		  	})
+		  })
+
+		});
+
+	</script>
+</body>
+</html>

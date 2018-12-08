@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回复</title>
+	<script src="_JS_/jquery.min.js"></script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>文章名字</td>
+			<td>{$con.title}</td>
+		</tr>
+		<tr>
+			<td>评论人</td>
+			<td>{$con.comment_name}</td>
+		</tr>
+		<tr>
+			<td>评论内容</td>
+			<td>{$con.content}</td>
+		</tr>
+		<tr>
+			<td>评论时间</td>
+			<td>{$con.createtime | date="Y-m-d H:i:s",###}</td>
+		</tr>
+		{if condition="!empty($hf.content)"}
+		<tr>
+			<td>回复内容</td>
+			<td>{$hf.content}</td>
+		</tr>
+		{/if}
+	</table>
+	{if condition="empty($hf.content)"}
+	<textarea name="" id="con" cols="30" rows="10"></textarea>
+	<button>提交</button>
+	<script>
+		$('button').click(function(){
+			var con = $('#con').val();
+			if(con==''){
+				alert('回复内容不能为空')
+				return false;
+			}
+			$.post('{:url("replayh")}',{con:con,id:{$con.id}},function(data){
+				if(data==0){
+					alert('回复成功')
+				}
+			})
+		})
+	</script>
+	{/if}
+</body>
+</html>

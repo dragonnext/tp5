@@ -1,0 +1,447 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>首页_杨青个人博客 - 一个站在web前端设计之路的女技术员个人博客网站</title>
+<meta name="keywords" content="个人博客,杨青个人博客,个人博客模板,杨青" />
+<meta name="description" content="杨青个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="_CSS_/base.css" rel="stylesheet">
+<link href="_CSS_/index.css" rel="stylesheet">
+<link href="_CSS_/info.css" rel="stylesheet">
+<link href="_CSS_/m.css" rel="stylesheet">
+<script src="_JS_/jquery.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+  <div class="logo"><a href="/"><img src="images/logo.png"></a></div>
+  <nav id="nav">
+    <ul>
+      <li><a href="index.html">网站首页</a></li>
+      <li><a href="share.html">我的相册</a></li>
+      <li><a href="list.html">我的日记</a></li>
+      <li><a href="about.html">关于我</a></li>
+      <li><a href="gbook.html">留言</a></li>
+      <li><a href="info.html">内容页</a></li>
+      <li><a href="infopic.html">内容页</a></li>
+    </ul>
+  </nav>
+  <script>
+window.onload = function ()
+{
+var obj=null;
+var As=document.getElementById('nav').getElementsByTagName('a');
+obj = As[0];
+for(i=1;i<As.length;i++){if(window.location.href.indexOf(As[i].href)>=0)
+obj=As[i];}
+obj.id='selected'
+}
+
+</script> 
+  <script type="text/javascript">
+
+$(document).ready(function(e) {			
+	t = $('.guanzhu').offset().top;
+
+	mh = $('.infosbox').height();
+	fh = $('.guanzhu').height();
+
+	$(window).scroll(function(e){
+		s = $(document).scrollTop();	
+		if(s > t - 10){
+			$('.guanzhu').css('position','fixed');
+	         $('.guanzhu').css('background','fff');
+			if(s + fh > mh){
+				$('.guanzhu').css('top',mh-s-fh+'px');	
+			}				
+		}else{
+			$('.guanzhu').css('position','');
+		}
+		
+	})
+  $('.diggit').click(function(){
+    $.post('{:url("fabulous")}',{id:{$con.id}},function(data){
+      if(data==1){
+        alert('点赞成功')
+      }
+    })
+  })
+  $('#submit').click(function(){
+    var author = $('#author').val().trim();
+    var email = $('#email').val().trim();
+    var comment = $('#comment').val().trim();
+    if(author == ''){
+      alert('人名不能为空')
+      return false;
+    }
+    if(email == ''){
+      alert('邮箱不能为空')
+      return false;
+    }
+    if(comment == ''){
+      alert('评论内容不能为空')
+      return false;
+    }
+    $.post('{:url("comment")}',{author:author,email:email,comment:comment,id:{$con.id}},function(data){
+      if(data==0){
+        alert('评论成功!');
+      }
+    })
+  })
+});
+
+</script> 
+</header>
+<div class="mnav">
+    <ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="share.html">相册</a></li>
+      <li><a href="list.html">日记</a></li>
+      <li><a href="about.html">关于</a></li>
+      <li><a href="gbook.html">留言</a></li>
+      <li><a href="info.html">内容页</a></li>
+      <li><a href="infopic.html">内容页</a></li>
+    </ul>
+  </div>
+<article>
+  <div class="l_box">
+    <div class="search">
+      <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+        <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+        <input name="show" value="title" type="hidden">
+        <input name="tempid" value="1" type="hidden">
+        <input name="tbname" value="news" type="hidden">
+        <input name="Submit" class="input_submit" value="搜索" type="submit">
+      </form>
+    </div>
+    <div class="fenlei">
+      <h2>文章分类</h2>
+      <ul>
+        <li><a href="/">学无止境（33）</a></li>
+        <li><a href="/">日记（19）</a></li>
+        <li><a href="/">慢生活（520）</a></li>
+        <li><a href="/">美文欣赏（40）</a></li>
+      </ul>
+    </div>
+    <div class="tuijian">
+      <h2>站长推荐</h2>
+      <ul>
+        <li><a href="/">你是什么人便会遇上什么人</a></li>
+        <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+        <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+        <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+        <li><a href="/">你是什么人便会遇上什么人</a></li>
+        <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+        <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+        <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+      </ul>
+    </div>
+    <div class="tuijian">
+      <h2>点击排行</h2>
+      <ul>
+        <li><a href="/">你是什么人便会遇上什么人</a></li>
+        <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+        <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+        <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+        <li><a href="/">你是什么人便会遇上什么人</a></li>
+        <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
+        <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
+        <li><a href="/">个人博客模板《绅士》后台管理</a></li>
+      </ul>
+    </div>
+    <div class="cloud">
+      <h2>标签云</h2>
+      <ul>
+        <a href="/">陌上花开</a> <a href="/">校园生活</a> <a href="/">html5</a> <a href="/">SumSung</a> <a href="/">青春</a> <a href="/">温暖</a> <a href="/">阳光</a> <a href="/">三星</a><a href="/">索尼</a> <a href="/">华维荣耀</a> <a href="/">三星</a> <a href="/">索尼</a>
+      </ul>
+    </div>
+    <div class="guanzhu">
+      <h2>关注我 么么哒</h2>
+      <ul>
+        <img src="images/wx.jpg">
+      </ul>
+    </div>
+  </div>
+  <div class="infosbox">
+    <div class="newsview">
+      <h3 class="news_title">{$con.title}</h3>
+      <div class="bloginfo">
+        <ul>
+          <li class="author">作者：<a href="/">黑山行者</a></li>
+          <li class="lmname"><a href="/">学无止境</a></li>
+          <li class="timer">时间：{$con.createtime|date="Y-m-d H:i:s",###}</li>
+          <li class="view">{$con.click}人已阅读</li>
+        </ul>
+      </div>
+      <div class="tags"><a href="/" target="_blank">个人博客</a> &nbsp; <a href="/" target="_blank">小世界</a></div>
+      <div class="news_about"><strong>简介</strong>个人博客，用来做什么？我刚开始就把它当做一个我吐槽心情的地方，也就相当于一个网络记事本，写上一些关于自己生活工作中的小情小事，也会放上一些照片，音乐。每天工作回家后就能访问自己的网站，一边听着音乐，一边写写文章。</div>
+      <div class="news_con">
+        {$con.content}
+      </div>
+    </div>
+    <div class="share">
+      <p class="diggit"><a href="javascript:;"> 很赞哦！ </a>(<b id="diggnum"><script type="text/javascript" src=""></script>{$con.fabulous}</b>)</p>
+    </div>
+    <div class="nextinfo">
+      <p>上一篇：<a href="{:url('info')}?id={$prev.id}">{$prev.title}</a></p>
+      <p>下一篇：<a href="{:url('info')}?id={$next.id}">{$next.title}</a></p>
+    </div>
+    <div class="news_pl">
+      <h2>文章评论</h2>
+      <ul>
+        <div class="gbko">
+          <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+          <div id="respond">
+              <!-- <h3 id="comments" class="respond_title">发表评论（目前一条评论）</h3> -->
+              <div id="cancel-comment-reply">
+                  <small>
+                      <a rel="nofollow" id="cancel-comment-reply-link" href="/wordpress/2018/11/css4-color-adjust/#respond" style="display:none;">点击这里取消回复。</a></small>
+              </div>
+              <div method="post" id="commentform" novalidate="">
+                  <p>
+                      <input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required="true" required="">
+                      <label for="author">
+                          <small>名称 (必须)</small></label>
+                  </p>
+                  <p>
+                      <input type="email" name="email" id="email" value="" size="22" tabindex="2" aria-required="true" required="">
+                      <label for="email">
+                          <small>邮件地址(不会被公开) (必须)</small></label>
+                  </p>
+                 <!--  <p>
+                      <input type="url" name="url" id="url" value="" size="22" tabindex="3">
+                      <label for="url">
+                          <small>网站</small></label>
+                  </p> -->
+                  <p>
+                      <textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea>
+                  </p>
+                  <p>
+                      <input name="submit" type="submit" id="submit" tabindex="5" value="提交评论">
+                      <span id="commRem" class="ml20" style="color:#cd0000;">名称还没填写</span>
+                      <input type="hidden" name="comment_post_ID" value="8219" id="comment_post_ID">
+                      <input type="hidden" name="comment_parent" id="comment_parent" value="0"></p>
+                  <p style="display: none;">
+                      <input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="bb4fc34023"></p>
+                  <p style="display: none;"></p>
+                  <input type="hidden" id="onlyGoodCom" name="from" value="zhangxinxu">
+                  <input type="hidden" id="ak_js" name="ak_js" value="1543283100714">
+                </div>
+          </div>
+        </div>
+      </ul>
+      <ol class="commentlist">
+        <!-- #comment-## -->
+        {foreach name="comment" item="v"}
+        <li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-389253">
+          <div id="div-comment-389253" class="comment-body">
+            <div class="comment-author vcard">
+              <img src="https://secure.gravatar.com/avatar/1e761e39b238c406ee9d775f6b68a6f3?s=64"
+              class="avatar avatar-64" height="64" width="64">
+              <cite class="fn">
+                {$v.comment_name}
+              </cite>
+              <span class="says">
+                说道：
+              </span>
+            </div>
+            <div class="comment-meta commentmetadata">
+              <a href="https://www.zhangxinxu.com/wordpress/2018/11/html-js-set-css-css3-var%e5%8f%98%e9%87%8f/#comment-389253">
+                {$v.createtime|date="Y-m-d H:i:s",###}
+              </a>
+            </div>
+            <p>
+              {$v.content}
+            </p>
+            <div class="reply">
+              <a rel="nofollow" class="comment-reply-link" href="https://www.zhangxinxu.com/wordpress/2018/11/html-js-set-css-css3-var%e5%8f%98%e9%87%8f/?replytocom=389253#respond"
+              onclick="return addComment.moveForm( &quot;div-comment-389253&quot;, &quot;389253&quot;, &quot;respond&quot;, &quot;8163&quot; )"
+              aria-label="回复给许新翔">
+                回复
+              </a>
+            </div>
+          </div>
+          {if condition="$v.child!=null"}
+          <ul class="children">
+            <li class="comment byuser comment-author-admin bypostauthor even depth-2"
+            id="comment-389265">
+              <div id="div-comment-389265" class="comment-body">
+                <div class="comment-author vcard">
+                  <img src="https://secure.gravatar.com/avatar/3e58242902fa8f33162f3f10df892c68?s=64"
+                  class="avatar avatar-64" height="64" width="64">
+                  <cite class="fn">
+                    <a href="http://www.zhangxinxu.com" rel="external nofollow" class="url">
+                      {$v.child.comment_name}
+                    </a>
+                  </cite>
+                  <span class="says">
+                    说道：
+                  </span>
+                </div>
+                <div class="comment-meta commentmetadata">
+                  <a href="https://www.zhangxinxu.com/wordpress/2018/11/html-js-set-css-css3-var%e5%8f%98%e9%87%8f/#comment-389265">
+                    {$v.child.createtime | date="Y-m-d H:i:s", ###}
+                  </a>
+                </div>
+                <p>
+                  {$v.child.content}
+                </p>
+                <div class="reply">
+                  <a rel="nofollow" class="comment-reply-link" href="https://www.zhangxinxu.com/wordpress/2018/11/html-js-set-css-css3-var%e5%8f%98%e9%87%8f/?replytocom=389265#respond"
+                  onclick="return addComment.moveForm( &quot;div-comment-389265&quot;, &quot;389265&quot;, &quot;respond&quot;, &quot;8163&quot; )"
+                  aria-label="回复给张 鑫旭">
+                    回复
+                  </a>
+                </div>
+              </div>
+            </li>
+            <!-- #comment-## -->
+          </ul>
+          {/if}
+          <!-- .children -->
+        </li>
+        {/foreach}
+        <!-- #comment-## -->
+      </ol>
+    </div>
+  </div>
+</article>
+<style>
+  .da_title, #respond, .da_col2, #respond ~ .navigation, .commentlist, .post, .navigation_top, .navigation_bot, #content .pagetitle {
+    margin-left: 10px;
+    margin-right: auto;
+    width:650px;
+    max-width: 100%;
+}
+.da_title, .respond_title {
+    font-family: SimHei;
+}
+#commentform {
+    margin: 5px 0 0 0;
+}
+#commentform p {
+    overflow: hidden;
+    _zoom: 1;
+    margin: 5px 0;
+}
+#commentform input {
+    width: 250px;
+    margin: 0 5px 5px 0;
+    padding: 8px;
+}
+#commentform input, #commentform textarea {
+    padding: 4px;
+    border: 1px solid #7F9DB9;
+    background-color: #fff;
+}
+small, .sldebar_out ul ul li, .sldebar_out ul ol li, .nocomments, .postmetadata, blockquote, strike {
+    color: #777;
+}
+small {
+    font-family: Arial, Sans-Serif;
+    /* font-size: 75%; */
+    line-height: 1.5;
+}
+#commentform textarea {
+    width: 550px;
+    height: 140px;
+    overflow: auto;
+}
+#commentform input, #commentform textarea {
+    padding: 4px;
+    border: 1px solid #7F9DB9;
+    background-color: #fff;
+}
+#commentform #submit {
+    width: 100px;
+    height: 36px;
+    background-color: #f0f3f9;
+    color: #333;
+    overflow: visible;
+    cursor: pointer;
+    box-shadow: 1px 1px #AFC4EA, 2px 2px #AFC4EA, 3px 3px #AFC4EA;
+    font-size: 14px;
+}
+#commentform input {
+    width: 250px;
+    margin: 0 5px 5px 0;
+    padding: 8px;
+}
+.ml20 {
+    margin-left: 20px;
+}
+#commentform #submit:hover {
+    background-color: #EAEDF5;
+}
+#commentform #submit:active {
+    -ms-transform: translate(1px,1px);
+    transform: translate(1px,1px);
+    box-shadow: 1px 1px #AFC4EA, 2px 2px #AFC4EA;
+}
+.commentlist li {
+    margin: 15px 0 10px;
+    padding: 5px 5px 10px 10px;
+    font-weight: bold;
+    font-size: 87.5%;
+}
+.comment-body {
+    word-break: break-all;
+}
+.commentlist li {
+    margin: 15px 0 10px;
+    padding: 5px 5px 10px 10px;
+    font-weight: bold;
+    font-size: 87.5%;
+}
+.commentlist li .avatar {
+    float: right;
+    border: 1px solid #eee;
+    padding: 2px;
+    background: #fff;
+    height: 40px;
+    width: 40px;
+}
+.commentlist cite, .commentlist cite a {
+    font-weight: bold;
+    font-style: normal;
+}
+.commentmetadata {
+    margin: 0;
+    display: block;
+}
+a {
+    color: #34538b;
+    text-decoration: none;
+}
+.commentlist p {
+    margin: 10px 5px 10px 0;
+    font-weight: normal;
+    line-height: 1.5;
+    text-transform: none;
+}
+.depth-1 {
+    border: 1px solid #ddd;
+}
+.commentlist li ul li {
+    margin-left: 1em;
+    background-color: #eee;
+}
+.commentlist li {
+    margin: 15px 0 10px;
+    padding: 5px 5px 10px 10px;
+    font-weight: bold;
+    font-size: 87.5%;
+}
+.commentlist cite, .commentlist cite a {
+    font-weight: bold;
+    font-style: normal;
+}
+</style>
+<footer>
+  <p>Design by <a href="http://www.yangqq.com" target="_blank">杨青个人博客</a> <a href="/">蜀ICP备11002373号-1</a></p>
+</footer>
+</body>
+</html>

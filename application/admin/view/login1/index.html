@@ -1,0 +1,102 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台登录</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="renderer" content="webkit">
+    <meta name="author" content="wp">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0"/>
+    <link rel="stylesheet" href="_LAY_/css/layui.css" type="text/css">
+    <script src="_LAY_/layui.js" type="text/javascript"></script>
+    <!--<link rel="shortcut icon" href="" type="image/x-icon">-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="_CSS_/reset.css" type="text/css">
+    <link rel="stylesheet" href="_CSS_/admin_login.css" type="text/css">
+    <script src="_JS_/jquery.min.js" type="text/javascript"></script>
+    <style>
+.login_btn:hover{
+    background: #4c99e6!important;
+}
+
+    </style>
+</head>
+<body>
+<div class="login_wrap">
+    <img src="_IMAGES_/admin_login_bg.png" alt="">
+    <div class="login_box">
+        <h1>北京雨露众德</h1>
+        <form id="login_form">
+            <div class="item_input username_box active">
+                <label for="username"><i class="fa fa-user fa-lg"></i></label>
+                <input type="text" id="username" name="username" placeholder="请输入用户名" autocomplete="off">
+            </div>
+            <div class="item_input password_box">
+                <label for="password"><i class="fa fa-lock fa-lg"></i></label>
+                <input type="password" id="password" name="password" placeholder="请输入密码" autocomplete="off">
+            </div>
+            <div class="item_input btn-box">
+                <button class="login_btn">登录</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script>
+
+layui.use(['layer'], function(){
+    var layer = layui.layer;
+
+
+
+});
+
+
+
+    $(".username_box input").focus();
+    $(".item_input input").focus(function () {
+        $(this).parent(".item_input").addClass("active").siblings(".item_input").removeClass("active");
+    });
+    $(".login_btn").click(function () {
+        if($('#username').val()==''){
+          layer.msg('用户名不能为空');
+          return false;
+        }
+        if($('#password').val()==''){
+          layer.msg('密码不能为空');
+          return false;
+        }
+        data = $("#login_form").serialize();
+        $.ajax({
+            type: "POST",
+            url: "/index.php/admin/login1/login",
+            data: data,
+            success: function (res) {
+                if (res == '0') {
+                    layer.msg("登录成功", {icon: 1,time: 1500},function () {
+                    window.location="{:url('login/fabu')}";        
+                    });
+                }else{
+                    layer.alert('用户名或密码错误!', {icon: 2});
+                    return false;
+                }
+
+            }
+
+        });
+
+        return false;
+    })
+</script>
+</html>

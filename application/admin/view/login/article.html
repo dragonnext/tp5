@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回复</title>
+	<style>
+		table{
+			width: 100%;
+		}
+		td{
+			text-align: center;
+		}
+		/*.box{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: 10;
+			top:0;
+			left:0;
+		}
+		.item{
+			width: 400px;
+			height: 300px;
+			background: #fff;
+			margin-left: -200px;
+			margin-top: -150px;
+			position: absolute;
+			left:50%;
+			top:50%;
+		}*/
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>文章名字</th>
+			<th>文章创建时间</th>
+			<th>评论数量</th>
+			<th>操作</th>
+		</tr>
+		{foreach name="res" item="v"}
+		<tr>
+			<td>{$v.title}</td>
+			<td>{$v.createtime | date="Y-m-d H:i:s",###}</td>
+			<td>{$v.commentnum}</td>
+			<td><a target="_blank" href="{:url('xiugai')}?id={$v.id}">修改</a>&nbsp;<a href="{:url('articledelete')}?id={$v.id}">删除</a></td>
+		</tr>
+		{/foreach}
+	</table>
+<!-- 	<div class="box">
+		<div class="item">
+			<textarea name="" id="" cols="30" rows="10"></textarea>
+			<button>提交</button>
+		</div>
+	</div> -->
+</body>
+</html>
