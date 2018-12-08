@@ -1,0 +1,88 @@
+@charset "UTF-8";
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Microsoft YaHei, Helvetica, tahoma, arial, Hiragino Sans GB, \\5b8b\4f53, sans-serif;
+}
+
+.login_wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.login_wrap img {
+    width: 100%;
+    height: 100%;
+}
+
+.login_box {
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    margin-top: -286px;
+    left: 50%;
+    margin-left: -250px;
+}
+
+.login_box h1 {
+    height: 78px;
+    text-align: center;
+    color: white;
+}
+
+form#login_form {
+    display: block;
+    width: 500px;
+    height: 322px;
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 73px 60px;
+}
+
+form#login_form .item_input {
+    width: 100%;
+    height: 45px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px solid #dedede;
+    background: #fff;
+    margin-bottom: 22px;
+}
+form#login_form .item_input label{
+    display: block;
+    width: 50px;
+    height: 43px;
+    text-align: center;
+    line-height: 43px;
+    float: left;
+    background: #fff;
+    color: #dcdcdc;
+}
+form#login_form .item_input input{
+    border: none;
+    float: left;
+    width: 327px;
+    height: 100%;
+    box-sizing: border-box;
+    background: #fff;
+}
+form#login_form .item_input button.login_btn{
+    width: 100%;
+    height: 46px;
+    border: none;
+    outline: none;
+    background: #207bd8;
+    cursor: pointer;
+    color: white;
+}
+form#login_form .active{
+    border: 1px solid #60a7e5;
+    box-shadow: 0 0 15px #60a7e5;
+}
+form#login_form .active label i{
+    color: #5ea8e5;
+}

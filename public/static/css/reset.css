@@ -1,0 +1,185 @@
+@charset "UTF-8";
+html, body, h1, h2, h3, h4, h5, h6, div, p, dl, dd, dt, ul, ol, li, pre, form, input, textarea, tr, th, td, select, fieldset, legend, hr, blockquote, button, img, code, span, applet, object, iframe, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, label, table, caption, tbody, tfoot, thead, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    text-indent: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-touch-callout: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    background: #fff;
+    font-family: Microsoft YaHei, Helvetica, tahoma, arial, Hiragino Sans GB, \\5b8b\4f53, sans-serif;
+}
+
+pre, textarea, select, option, input, button {
+    font-family: Microsoft YaHei, Helvetica, tahoma, arial, Hiragino Sans GB, \\5b8b\4f53, sans-serif;
+}
+
+a, button, input, textarea, select {
+    background: none;
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+}
+
+b, strong {
+    font-weight: bolder;
+}
+
+em {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+fieldset, img {
+    border: none;
+    vertical-align: middle;
+}
+
+img {
+    -ms-interpolation-mode: bicubic;
+}
+
+legend {
+    color: #000;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+textarea {
+    resize: none;
+    overflow: auto;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #AAAAAA;
+}
+
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+    color: #EEEEEE;
+}
+
+input::-webkit-input-speech-button {
+    display: none;
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: none;
+    padding: 0;
+}
+
+input[type="text"], input[type="password"], textarea {
+    outline-style: none;
+    -webkit-appearance: none;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+input[type="search"] {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+button, input {
+    *overflow: visible;
+    line-height: normal;
+}
+
+button, select {
+    text-transform: none;
+}
+
+address, caption, cite, code, dfn, th, var, em, i {
+    font-style: normal;
+    font-weight: normal;
+}
+
+caption, th {
+    text-align: left;
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, menu {
+    display: block;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+.clear:after {
+    content: '\20';
+    display: block;
+    height: 0;
+    clear: both;
+    line-height: 0;
+    font-size: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.clear {
+    zoom: 1;
+}
+
